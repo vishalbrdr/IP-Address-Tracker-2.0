@@ -1,0 +1,183 @@
+:root {
+  --Very-Dark-Gray: hsl(0, 0%, 17%);
+  --Dark-Gray: hsl(0, 0%, 59%);
+}
+
+*,
+*::after,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+}
+
+html {
+  font-size: 67.5%;
+}
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+body {
+  font-size: 1.8rem;
+}
+
+.leaflet-container {
+  width: 100vw;
+  height: 60vh;
+  position: relative;
+}
+
+h1 {
+  color: white;
+  font-weight: 500;
+}
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.header {
+  height: 40vh;
+  background-image: url(../../images/pattern-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  justify-items: center;
+  padding-top: 5rem;
+  gap: 2rem;
+}
+@media screen and (max-width: 900px) {
+  .header {
+    padding-top: 1rem;
+  }
+}
+
+.input-box {
+  display: flex;
+  min-width: 33rem;
+  width: 50vw;
+  height: 5rem;
+}
+.input-box input {
+  height: 100%;
+  width: 90%;
+  padding-inline: 2rem;
+  font-size: 1.8rem;
+  border: none;
+  outline: none;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+@media screen and (max-width: 500px) {
+  .input-box input {
+    font-size: 1.4rem;
+  }
+}
+.input-box input::placeholder {
+  color: var(--Dark-Gray);
+}
+.input-box button {
+  background: none;
+  border: none;
+  outline: none;
+  background-color: var(--Very-Dark-Gray);
+  height: 100%;
+  padding-inline: 2.1rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.input-box button span {
+  position: absolute;
+  color: transparent;
+  pointer-events: none;
+}
+
+.result {
+  position: relative;
+  display: flex;
+  background-color: white;
+  padding: 3rem 4rem;
+  z-index: 5000;
+  margin-bottom: -5rem;
+  border-radius: 2rem;
+  gap: 2rem;
+  justify-content: space-between;
+  max-width: 90vw;
+  min-width: 33rem;
+}
+.result > .item:not(:first-child) {
+  padding-left: 3vw;
+  border-left: solid 1px var(--Dark-Gray);
+}
+@media screen and (max-width: 900px) {
+  .result > .item:not(:first-child) {
+    padding-left: 0;
+    border: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .result {
+    flex-direction: column;
+    max-width: 80vw;
+    padding: 2rem;
+    text-align: center;
+  }
+}
+.result .item-label {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--Dark-Gray);
+  margin-bottom: 0.4rem;
+}
+.result .item-value {
+  font-size: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-weight: 500;
+  color: var(--Very-Dark-Gray);
+}
+@media screen and (max-width: 900px) {
+  .result .item-value {
+    font-size: 1.6rem;
+  }
+}
+
+.error {
+  color: red;
+  width: 90vw;
+  border: solid;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 0, 0, 0.1);
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  height: 5rem;
+  border-radius: 5rem;
+  width: 5rem;
+  background-color: transparent;
+  border: solid rgb(0, 102, 255) 7px;
+  border-left-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
